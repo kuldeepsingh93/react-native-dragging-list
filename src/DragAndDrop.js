@@ -134,9 +134,9 @@ export default class DragAndDrop extends React.Component {
         }}
         onLayout = { this.setRowHeight }
       >
-        { renderItem }
+        { renderItem({ item }) }
         <View { ...(noPanResponder ? {} : this._panResponder.panHandlers)}>
-          { draggingGesture }
+          { draggingGesture() }
         </View>
       </View>
     )
