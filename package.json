@@ -1,0 +1,31 @@
+{
+  "name": "react-native-dragging-list",
+  "version": "1.0.0",
+  "description": "React Native package for drag and drop list.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuldeepsingh93/react-native-dragging-list.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "drag",
+    "drop",
+    "PanResponder",
+    "Animate",
+    "List"
+  ],
+  "author": "Kuldeep Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuldeepsingh93/react-native-dragging-list/issues"
+  },
+  "homepage": "https://github.com/kuldeepsingh93/react-native-dragging-list#readme",
+  "devDependencies": {
+    "metro-react-native-babel-preset": "^0.58.0"
+  }
+}
