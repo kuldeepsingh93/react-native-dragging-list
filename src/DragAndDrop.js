@@ -122,7 +122,7 @@ export default class DragAndDrop extends React.Component {
   }
 
   render() {
-    const { RenderItem, DraggingGesture } = this.props;
+    const { renderItem, draggingGesture } = this.props;
     const { dragging, draggingIndex, data } = this.state;
     let {scale}  = this
     const renderItemWrapper = ({ item, index }, noPanResponder = false) => (
@@ -134,9 +134,9 @@ export default class DragAndDrop extends React.Component {
         }}
         onLayout = { this.setRowHeight }
       >
-        <RenderItem item = { item } />
+        { renderItem({ item }) }
         <View { ...(noPanResponder ? {} : this._panResponder.panHandlers)}>
-           <DraggingGesture />
+           { draggingGesture }
         </View>
       </View>
     )
