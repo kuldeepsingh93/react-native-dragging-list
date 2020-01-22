@@ -122,21 +122,17 @@ export default class DragAndDrop extends React.Component {
   }
 
   render() {
-    const { RenderItem, DraggingGesture } = this.props;
+    const { RenderItem, DraggingHandle, listItemStyling } = this.props;
     const { dragging, draggingIndex, data } = this.state;
     let {scale}  = this
-    const renderItemWrapper = ({ item, index }, noPanResponder = false) => (
+    const renderItemWrapper = ({ item, index }) => (
       <View 
-        style = {{ 
-          flexDirection: 'row',
-          alignContent: 'center',
-          opacity: draggingIndex === index ? 0 : 1,
-        }}
+        style = {{ opacity: draggingIndex === index ? 0 : 1, ...listItemStyling }}
         onLayout = { this.setRowHeight }
       >
         <RenderItem item = { item } />
-        <View { ...(noPanResponder ? {} : this._panResponder.panHandlers)}>
-           <DraggingGesture />
+        <View { ...this._panResponder.panHandlers}>
+          <DraggingHandle />
         </View>
       </View>
     )
