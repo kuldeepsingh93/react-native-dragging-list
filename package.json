@@ -1,6 +1,6 @@
 {
   "name": "react-native-dragging-list",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "React Native package for drag and drop list.",
   "main": "index.js",
   "scripts": {
