@@ -83,6 +83,7 @@ export default DraggableList
 3. PanResponder
 4. Animated
 5. FlatList
-___________________________________
+
+</h1>
 
 **NOTE**: It is highly recommended to give same height to all list items otherwise you may face some issues using this package. 
