@@ -1,4 +1,4 @@
-<h1>react-native-infinite-scrolling</h1>
+<h1>react-native-dragging-list</h1>
 
 A react native package for simply dragging and dropping list items.
 
