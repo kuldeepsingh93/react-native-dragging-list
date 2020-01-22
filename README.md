@@ -86,4 +86,6 @@ export default DraggableList
 
 <h1> </h1>
 
-**NOTE**: It is highly recommended to give same height to all list items otherwise you may face some issues using this package. 
+**NOTE**: 
+1. It is highly recommended to give same height to all list items otherwise you may face some issues using this package. 
+2. Don't forget to give ```flex: 1``` styling to the ```<View>``` inside which you use this component otherwise the list will not be visible as it will take default height as 0.
