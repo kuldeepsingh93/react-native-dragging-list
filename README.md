@@ -84,4 +84,6 @@ export default DraggableList
 4. Animated
 5. FlatList
 
+--------------------------------------------
+
 **NOTE**: It is highly recommended to give same height to all list items otherwise you may face some issues using this package. 
