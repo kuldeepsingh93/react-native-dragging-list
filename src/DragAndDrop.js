@@ -38,6 +38,7 @@ export default class DragAndDrop extends React.Component {
   rowHeight = 0;
   currentIndex = -1;
   active = false;
+  useNativeDriver = false;
 
   constructor(props) {
     super(props);
@@ -50,20 +51,20 @@ export default class DragAndDrop extends React.Component {
       onPanResponderGrant: (evt, gestureState) => {
         this.currentIndex = this.yToIndex(gestureState.y0)
         this.currentY = gestureState.y0;
-        Animated.event([{ y: this.point.y }])({ y: gestureState.y0 - this.rowHeight / 2 })
+        Animated.event([{ y: this.point.y }], { useNativeDriver: this.useNativeDriver })({ y: gestureState.y0 - this.rowHeight / 2 } )
         this.active = true;
         this.setState({ draggingIndex: this.currentIndex, dragging: true }, () => {
           this.animateList();
         })
         Animated.timing(
           this.scale,
-          { toValue: 1.2, duration: 0 }
+          { toValue: 1.2, duration: 0, useNativeDriver: this.useNativeDriver }
         ).start();
         return true;
       },
       onPanResponderMove: (evt, gestureState) => {
         this.currentY = gestureState.moveY;
-        Animated.event([{ y: this.point.y }])({ y: gestureState.moveY })
+        Animated.event([{ y: this.point.y }], { useNativeDriver: this.useNativeDriver })({ y: gestureState.moveY })
         const newIndex = this.yToIndex(this.currentY);
         if (this.currentIndex !== newIndex) {
           this.setState({
@@ -81,7 +82,7 @@ export default class DragAndDrop extends React.Component {
         this.point.flattenOffset();
         Animated.timing(
           this.scale,
-          { toValue: 1, duration: 0 }
+          { toValue: 1, duration: 0, useNativeDriver: this.useNativeDriver },
         ).start();
         return true;
       },
@@ -122,8 +123,9 @@ export default class DragAndDrop extends React.Component {
   }
 
   render() {
-    const { RenderItem, DraggingHandle, listItemStyling } = this.props;
+    const { RenderItem, DraggingHandle, listItemStyling, useNativeDriver } = this.props;
     const { dragging, draggingIndex, data } = this.state;
+    this.useNativeDriver = useNativeDriver;
     let {scale}  = this
     const renderItemWrapper = ({ item, index }) => (
       <View 
